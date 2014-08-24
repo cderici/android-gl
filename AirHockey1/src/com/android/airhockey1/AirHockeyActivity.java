@@ -34,7 +34,7 @@ public class AirHockeyActivity extends ActionBarActivity {
 		if(supportEs2){
     		glSurfaceView.setEGLContextClientVersion(2);
     		glSurfaceView.setRenderer(new FirstOpenGLProjectRenderer());
-    		
+    		rendererSet = true;
     	}
     	else {
     		Toast.makeText(this,"asd",Toast.LENGTH_LONG).show();

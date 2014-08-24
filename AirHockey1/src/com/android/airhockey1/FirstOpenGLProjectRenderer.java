@@ -14,7 +14,7 @@ public class FirstOpenGLProjectRenderer implements Renderer{
 	@Override
 	public void onDrawFrame(GL10 glUnused) {
 		// TODO Auto-generated method stub
-		glClearColor(15.0f, 0.0f, 0.0f, 0.0f);
+		glClear(GL_COLOR_BUFFER_BIT);
 	}
 
 	@Override
@@ -26,6 +26,6 @@ public class FirstOpenGLProjectRenderer implements Renderer{
 	@Override
 	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 		// TODO Auto-generated method stub
-		glClear(GL_COLOR_BUFFER_BIT);
+		glClearColor(15.0f, 0.0f, 0.0f, 0.0f);
 	}
 }
