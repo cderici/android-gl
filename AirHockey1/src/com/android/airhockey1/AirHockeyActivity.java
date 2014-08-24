@@ -17,6 +17,10 @@ public class AirHockeyActivity extends ActionBarActivity {
 	private GLSurfaceView glSurfaceView;
 	private boolean rendererSet = false ;
 
+	/*
+	 * ON CREATE
+	 * 
+	 * */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -37,6 +41,10 @@ public class AirHockeyActivity extends ActionBarActivity {
     	}
 	}
 
+	/*	
+	 * ON CREATE OPTIONS MENU
+	 * 
+	 * */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -44,6 +52,9 @@ public class AirHockeyActivity extends ActionBarActivity {
 		return true;
 	}
 
+	/*
+	 * ON OPTION SELECTED
+	 */
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle action bar item clicks here. The action bar will
@@ -56,6 +67,11 @@ public class AirHockeyActivity extends ActionBarActivity {
 		return super.onOptionsItemSelected(item);
 	}
 	
+	/*
+	 * 
+	 * ON PAUSE
+	 * 
+	 */
 	@Override
     protected void onPause(){
     	super.onPause();
@@ -64,6 +80,10 @@ public class AirHockeyActivity extends ActionBarActivity {
     	}
     }
     
+	/*
+	 * 
+	 * ON RESUME
+	 */
     @Override
     protected void onResume(){
     	super.onResume();
