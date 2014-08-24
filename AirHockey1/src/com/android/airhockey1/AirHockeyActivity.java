@@ -23,17 +23,18 @@ public class AirHockeyActivity extends ActionBarActivity {
 	 * */
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(glSurfaceView);
 		
 		final ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
 		final ConfigurationInfo configurationInfo = activityManager.getDeviceConfigurationInfo();
 		final boolean supportEs2 = configurationInfo.reqGlEsVersion >= 0x20000;
     	
+		super.onCreate(savedInstanceState);
+        glSurfaceView = new GLSurfaceView(this);
+
 		if(supportEs2){
     		glSurfaceView.setEGLContextClientVersion(2);
     		glSurfaceView.setRenderer(new FirstOpenGLProjectRenderer());
-    		rendererSet = true ;
+    		
     	}
     	else {
     		Toast.makeText(this,"asd",Toast.LENGTH_LONG).show();
