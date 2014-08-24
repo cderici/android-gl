@@ -1,16 +1,40 @@
 package com.android.airhockey1;
 
+import com.android.airhockey1.FirstOpenGLProjectRenderer;
+
 import android.support.v7.app.ActionBarActivity;
+import android.app.ActivityManager;
+import android.content.Context;
+import android.content.pm.ConfigurationInfo;
+import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class AirHockeyActivity extends ActionBarActivity {
+	
+	private GLSurfaceView glSurfaceView;
+	private boolean rendererSet = false ;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_air_hockey);
+		setContentView(glSurfaceView);
+		
+		final ActivityManager activityManager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+		final ConfigurationInfo configurationInfo = activityManager.getDeviceConfigurationInfo();
+		final boolean supportEs2 = configurationInfo.reqGlEsVersion >= 0x20000;
+    	
+		if(supportEs2){
+    		glSurfaceView.setEGLContextClientVersion(2);
+    		glSurfaceView.setRenderer(new FirstOpenGLProjectRenderer());
+    		rendererSet = true ;
+    	}
+    	else {
+    		Toast.makeText(this,"asd",Toast.LENGTH_LONG).show();
+    		return ;
+    	}
 	}
 
 	@Override
@@ -31,4 +55,20 @@ public class AirHockeyActivity extends ActionBarActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	@Override
+    protected void onPause(){
+    	super.onPause();
+    	if(rendererSet){
+    		glSurfaceView.onPause();
+    	}
+    }
+    
+    @Override
+    protected void onResume(){
+    	super.onResume();
+    	if(rendererSet){
+    		glSurfaceView.onResume();
+    	}
+    }
 }
