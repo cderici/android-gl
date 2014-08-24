@@ -14,7 +14,7 @@ public class FirstOpenGLProjectRenderer implements Renderer{
 	@Override
 	public void onDrawFrame(GL10 glUnused) {
 		// TODO Auto-generated method stub
-		glClearColor(1.0f, 0.0f, 0.0f, 0.0f);
+		glClearColor(15.0f, 0.0f, 0.0f, 0.0f);
 	}
 
 	@Override
