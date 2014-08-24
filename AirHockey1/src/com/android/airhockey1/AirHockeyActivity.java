@@ -40,6 +40,8 @@ public class AirHockeyActivity extends ActionBarActivity {
     		Toast.makeText(this,"asd",Toast.LENGTH_LONG).show();
     		return ;
     	}
+		
+		setContentView(glSurfaceView);
 	}
 
 	/*	
